@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Weather App</title>
+  <link rel="stylesheet" href="styles.css">
+  </link>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header class="header-container">
+        <h1 class="title center">Weather App</h1>
+
+        <div class="weather-header">
+            <select id="selected-city" class="local-select center">
+                <option value></option>
+                <option value="new york">New York</option>
+                <option value="los angeles">Los Angeles</option>
+                <option value="chicago">Chicago</option>
+                <option value="paris">Paris</option>
+                <option value="tokyo">Tokyo</option>
+                <option value="london">London</option>
+            </select>
+
+            <button id="get-weather-btn" class="search-button">Get Weather</button>
+        </div>
+    </header>
+
+    <main>
+        <div id="weather-container" class="main-container hidden">
+
+            <h2 id="location" class="local-name center"></h2>
+
+            <div class="main-info">
+                <div class="weather-info">
+                    <p id="main-temperature" class="temperature center"></p>
+                </div>
+
+                <div class="weather-info">
+                    <img id="weather-icon" class="icon"/>
+                    <p id="weather-main" class="main center"></p>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="details">
+                <div class="detail-group">
+                    <div class="detail-item">
+                        <p class="detail-label">Feels Like</p>
+                        <p id="feels-like" class="detail"></p>
+                    </div>
+
+                    <div class="detail-item">
+                        <p class="detail-label">Humidity</p>
+                        <p id="humidity" class="detail"></p>
+                    </div>
+                </div>
+
+                <div class="detail-group">
+                    <div class="detail-item">
+                        <p class="detail-label">Wind</p>
+                        <p id="wind" class="detail"></p>
+                    </div>
+
+                    <div class="detail-item">
+                        <p class="detail-label">Gusts</p>
+                        <p id="wind-gust" class="detail"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Weather App. All rights reserved.</p>
+    </footer>
+    
+<script src="script.js" async></script>
+
+</body>
+
+</html>
