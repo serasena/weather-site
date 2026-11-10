@@ -20,17 +20,19 @@ async function getWeather(city) {
     const res = await fetch(
       `https://weather-proxy.freecodecamp.rocks/api/city/${city}`,
     );
-    return res.json();
+    const data = await res.json();
+    return data;
   } catch (err) {
-    console.log(err);
+    console.error(err);
+    throw err;
   }
 }
 
 async function showWeather(city) {
   const weatherData = await getWeather(city);
 
-  if (weatherData === undefined) {
-    alert("Something went wrong, please try again later");
+  if (weatherData.error) {
+    alert(weatherData.error);
     return;
   }
 
@@ -45,7 +47,9 @@ async function showWeather(city) {
   const { main, icon } = weather[0];
 
   weatherIconEl.src = icon || "";
-  mainTemperatureEl.innerHTML = temp ? `<span>${temp.toFixed(0)}&deg;</span>C` : "<span>N/A</span>";
+  mainTemperatureEl.innerHTML = temp
+    ? `<span>${temp.toFixed(0)}&deg;</span>C`
+    : "<span>N/A</span>";
   feelsLikeEl.innerHTML = `${feels_like ? `<span>${feels_like.toFixed(0)}&deg;</span> C` : "<span>N/A</span>"}`;
   humidityEl.innerHTML = `${humidity ? `<span>${humidity}%</span>` : "<span>N/A</span>"}`;
   windEl.innerHTML = `${speed ? `<span>${speed}</span> m/s` : "<span>N/A</span>"}`;
